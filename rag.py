@@ -70,3 +70,31 @@ documents = SimpleDirectoryReader(input_files=["设定.txt"]).load_data()
 index = VectorStoreIndex.from_documents(documents)
 query_engine = index.as_query_engine()
 print(query_engine.query("黑神话悟空的故事有哪些章节?"))
+
+print(query_engine.query("黑神话悟空的故事有哪些人物?"))
+
+print(query_engine.query("黑神话悟空的故事有哪些地理环境?"))
+
+
+"""
+
+2026-07-03 19:06:34,594 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"         
+《黑神话：悟空》的故事共有六个章节，分别是“火照黑云”、“风起黄昏”、“夜生白露”、“曲度紫鸳”、“日落红尘”和“未竟”。
+2026-07-03 19:06:35,840 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+根据提供的信息，无法确定《黑神话：悟空》故事中具体有哪些人物。
+2026-07-03 19:06:36,889 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+《黑神话：悟空》的故事中包含了重庆的大足石刻、山西省的小西天、南禅寺、铁佛寺、广胜寺和鹳雀楼等地理环境。
+
+
+BAAI/bge-small-zh-v1.5 是本地向量嵌入模型（Embedding），负责本地私有文档语义检索；
+https://api.deepseek.com/v1 是云端大语言模型（LLM），负责理解检索到的内容、生成最终回答；
+
+三、为什么不能只用其中一个？
+只调用 DeepSeek API，不用本地 bge
+私有知识库必须全部上传云端，数据泄露风险极高；
+大模型训练知识截止时间固定，无法读取你本地新增业务文档；
+海量文档全丢进 prompt 会超长、高额 token 费用、触发上下文限制；
+容易出现幻觉，不知道你的私有业务资料。
+只本地跑 bge，不用 DeepSeek API
+bge 只会算相似度、找文档，没有生成文本能力，不能总结、回答、推理，只能返回原文片段，无法交付自然语言回复。
+"""
