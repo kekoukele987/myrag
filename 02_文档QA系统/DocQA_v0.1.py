@@ -39,7 +39,8 @@ print(f"共加载 {len(documents)} 个文档片段")
 # ==================== 2. Split 切分文档 ====================
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=10)
+# chunk_size=500 让每块包含更完整的语义，避免把"Rose: Love, Passion, Beauty"切散
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 chunked_documents = text_splitter.split_documents(documents)
 print(f"切分为 {len(chunked_documents)} 个块")
 
@@ -78,9 +79,9 @@ llm = ChatOpenAI(
 # 使用普通检索器（search_kwargs={"k": 4} 表示检索 4 个最相关文档块）
 retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
 
-# 提示词模板
+# 提示词模板（注意：上下文可能是英文，需要翻译后回答）
 prompt_template = PromptTemplate.from_template(
-    """根据以下上下文内容回答问题。
+    """根据以下上下文内容回答问题。如果上下文是英文，请将其翻译成中文后再回答。
 
 上下文：
 {context}

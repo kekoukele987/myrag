@@ -1,30 +1,30 @@
-Rose: Love, Passion, Beauty
-Carnation: Maternal Love, Innocence, Respect
-Lily: Purity, Nobility, Blessings
-Tulip: Perfect Love, Passion, Tenderness
-Daisy: Innocence, Beauty, Hope
-Peony: Prosperity, Wealth, Happiness
-Sunflower: Loyalty, Sunshine, Positivity
-Gypsophila: Purity, Romance, Beautiful Dreams
-Peach Blossom: Romantic Luck, Beautiful Fate, Happiness
-Hydrangea: Sincerity, Gratitude, Best Wishes
-Phalaenopsis: Noble, Elegant, Beautifully Moving
-Cherry Blossom: Beauty, Transience, Wonderful Moments
-Lily of the Valley: Happiness, Purity, Deep Love
-Chrysanthemum: Strength, Longevity, Sincere Friendship
-Marigold: Beauty, Blessings, Wellness
-Violet: Eternal Love, Purity, Chastity
-Edelweiss: Courage, Sincere Love, Preciousness
-Bellflower: Hope, Everlasting Love, Humility
-Forget-Me-Not: Loyalty, True Love, Beautiful Memories
-Paeonia: Fragrance, Wealth, Beautiful Posture
-Wisteria: Gentleness, Sentimentality, Protective Love
-Lavender: Tranquility, Innocence, Pursuit of Love
-Foxglove: Beauty, Joy, Blessings
-Dianthus: Delicate Thoughts, Sincerity, Romance
-Magnolia: Nobility, Elegance, Eternal Love
-Lilac: First Love, Youth, Beautiful Memories
-Lotus: Freshness, Purity, Excellence
-Ginkgo: Persistence, Friendship, Steadfast Heart
-Snowdrop: Hope, New Beginnings, First Bloom
-Anthurium: Passion, Attraction, Happy Love
+玫瑰：热烈的爱，激情，美丽
+康乃馨：母爱，纯洁，尊敬
+百合：纯洁，高贵，祝福
+郁金香：完美的爱，热情，温柔
+雏菊：纯真，美丽，希望
+牡丹：繁荣，富贵，幸福
+向日葵：忠诚，阳光，积极
+满天星：纯洁，浪漫，美丽的梦
+桃花：桃花运，美好姻缘，幸福
+绣球花：真诚，感恩，美好祝愿
+蝴蝶兰：高贵，优雅，动人的美
+樱花：美丽，短暂，美好瞬间
+铃兰：幸福，纯洁，深深的爱
+菊花：坚强，长寿，真诚的友谊
+万寿菊：美丽，祝福，健康
+紫罗兰：永恒的爱，纯洁，忠贞
+雪绒花：勇气，真诚的爱，珍贵
+风铃草：希望，永恒的爱，谦逊
+勿忘我：忠诚，真爱，美好回忆
+芍药：芬芳，富贵，优美姿态
+紫藤：温柔，多愁善感，保护的爱
+薰衣草：宁静，纯真，对爱的追求
+毛地黄：美丽，快乐，祝福
+石竹：细腻的思念，真诚，浪漫
+木兰花：高贵，优雅，永恒的爱
+丁香花：初恋，青春，美好回忆
+荷花：清新，纯洁，出类拔萃
+银杏：坚持，友谊，坚定的心
+雪花莲：希望，新的开始，第一朵花开
+红掌：热情，吸引，快乐的爱
