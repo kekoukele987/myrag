@@ -110,15 +110,15 @@ app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), 't
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    result_text = None
+    answer = None
     if request.method == 'POST':
         question = request.form.get('question')
         if question:
-            result_text = qa_chain.invoke(question)
-    return render_template('index.html', result=result_text)
+            answer = qa_chain.invoke(question)
+    return render_template('index.html', answer=answer)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True, port=5000)
+    app.run(host='0.0.0.0', debug=False, port=5000)
 
 
 """

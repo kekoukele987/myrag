@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>易速鲜花内部问答系统</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { color: #2c3e50; }
+        input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; }
+        input[type="submit"] { background: #3498db; color: white; border: none; padding: 10px 30px; font-size: 16px; cursor: pointer; }
+        input[type="submit"]:hover { background: #2980b9; }
+        .answer { background: #f8f9fa; border-left: 4px solid #3498db; padding: 20px; margin-top: 20px; white-space: pre-wrap; }
+        .footer { text-align: center; margin-top: 40px; color: #999; font-size: 12px; }
+    </style>
+</head>
 <body>
     <div class="container">
         <div class="header">
@@ -5,13 +21,17 @@
             <img src="{{ url_for('static', filename='flower.png') }}" alt="flower logo" width="200"> 
         </div>
         <form method="POST">
-            <label for="question">Enter your question:</label><br>
-            <input type="text" id="question" name="question"><br>
-            <input type="submit" value="Submit">
+            <label for="question">请输入您的问题：</label><br>
+            <input type="text" id="question" name="question" placeholder="例如：花语大全中玫瑰代表什么？">
+            <input type="submit" value="提交">
         </form>
-        {% if result is defined %}
-            <h2>Answer</h2>
-            <p>{{ result.result }}</p>
+        {% if answer %}
+            <div class="answer">
+                <h3>回答：</h3>
+                <p>{{ answer }}</p>
+            </div>
         {% endif %}
     </div>
+    <div class="footer">Powered by DeepSeek + Chroma + FastEmbed</div>
 </body>
+</html>
