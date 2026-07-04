@@ -1,31 +1,48 @@
-'''欢迎来到LangChain实战课
-https://time.geekbang.org/column/intro/100617601
-作者 黄佳'''
-from dotenv import load_dotenv  # 用于加载环境变量
-load_dotenv()  # 加载 .env 文件中的环境变量
+from dotenv import load_dotenv
+load_dotenv()
 
-# 导入LangChain中的提示模板
-from langchain.prompts import PromptTemplate
-# 创建原始模板
-template = """You are a flower shop assitiant。\n
-For {price} of {flower_name} ，can you write something for me？
+import os
+
+from langchain_core.prompts import PromptTemplate
+
+template = """You are a flower shop assistant.
+For {price} of {flower_name} , can you write something for me？
 """
-# 根据原始模板创建LangChain提示模板
-prompt = PromptTemplate.from_template(template) 
-# 打印LangChain提示模板的内容
+
+prompt = PromptTemplate.from_template(template)
+print("=== PromptTemplate ===")
 print(prompt)
+print()
 
-# 设置HuggingFace API Token
-# import os
-# os.environ['HUGGINGFACEHUB_API_TOKEN'] = '你的HUGGINGFACEHUB API Token'
+api_key = os.getenv("DEEPSEEK_API_KEY")
+if not api_key:
+    raise ValueError("请先在 .env 文件中设置 DEEPSEEK_API_KEY")
 
-# 导入LangChain中的OpenAI模型接口
-from langchain_community.llms import HuggingFaceHub
-# 创建模型实例
-model= HuggingFaceHub(repo_id="google/flan-t5-large")
-# 输入提示
-input = prompt.format(flower_name=["玫瑰"], price='50')
-# 得到模型的输出
-output = model.invoke(input)
-# 打印输出内容
-print(output)
+from langchain_openai import ChatOpenAI
+
+model = ChatOpenAI(
+    model="deepseek-chat",
+    max_tokens=200,
+    base_url="https://api.deepseek.com/v1",
+    api_key=api_key,
+    temperature=0.7,
+)
+
+input_text = prompt.format(flower_name="玫瑰", price=50)
+output = model.invoke(input_text)
+print("=== 模型输出 ===")
+print(output.content)
+
+
+"""
+本示例演示：模型 IO —— 使用 ChatOpenAI 替代 HuggingFaceHub
+
+原代码使用 HuggingFaceHub(repo_id="google/flan-t5-large")，需要联网且依赖 HuggingFace 服务。
+由于网络环境限制，已替换为 DeepSeek Chat API（与 01_模型IO.py 相同的调用方式）。
+
+与其他文件的区别：
+01_模型IO.py：单次调用，PromptTemplate + ChatOpenAI
+02_模型IO_循环调用.py：循环调用，对多种花批量生成
+03_OpenAI_IO.py：用原生 openai SDK（不用 langchain）
+04_模型IO_HuggingFace.py：原为 HuggingFaceHub 模型，现改为 DeepSeek Chat（结构同 01）
+"""
