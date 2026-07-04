@@ -17,7 +17,7 @@ llm = ChatOpenAI(
     api_key=api_key,
 )
 
-text = llm.invoke("请给我写一句情人节红玫瑰的中文宣传语")
+text = llm.invoke("请给我写一句清明节的中文宣传语")
 print(text.content)
 
 
