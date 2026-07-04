@@ -44,6 +44,7 @@ print(result)
 - LCEL 更简洁：prompt | llm | parser 就能完成链式调用
 - 本质上就是 PromptTemplate + LLM + 输出解析的组合
 
+
 与旧版区别：
 langchain.llms.HuggingFaceHub → langchain_openai.ChatOpenAI
 langchain.LLMChain → LCEL（prompt | llm | parser）
@@ -56,5 +57,5 @@ result = llm_chain.run(question)
 
  管道语法，| 是管道操作符，作用和 Linux shell 的 | 一样：把前一步输出，传给后一步当输入，串联成完整执行链路。
 
- 
+
 """
