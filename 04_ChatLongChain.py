@@ -48,4 +48,12 @@ print(response.content)
 - 03 使用 Text 模型（补全式），04 使用 Chat 模型（对话式）
 - 02 用原生 SDK，01/04 用 langchain 封装
 - 01 单条 prompt，04 支持 system/user 多角色消息
+
+
+消息类型	     作用	                               对应 OpenAI role
+SystemMessage	全局人设、规则、约束（永久生效）	     system
+HumanMessage	用户提问、人类输入	                    user
+AIMessage	    AI 历史回复，用于多轮对话记忆	         assistant
+
+
 """
