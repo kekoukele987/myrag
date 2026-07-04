@@ -55,8 +55,17 @@ prompt = chat_prompt.format_prompt(
     human_input="我想为我的女朋友购买一些花。她喜欢粉色和紫色。你有什么建议吗?"
 ).to_messages()
 
+# 打印完整的 prompt（调试用）
+print("=== 完整的 Prompt ===")
+for i, msg in enumerate(prompt):
+    print(f"[{i}] {msg.type}:")
+    print(msg.content)
+    print()
+print("=====================")
+
 # 接收用户的询问，返回回答结果
 response = llm.invoke(prompt)
+print("=== 模型回答 ===")
 print(response.content)
 
 
