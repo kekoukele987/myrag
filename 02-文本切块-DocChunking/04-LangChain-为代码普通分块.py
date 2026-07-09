@@ -63,7 +63,7 @@ class QuestSystem:
 
 # 创建文本分割器
 text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,  # 每个块的大小
+    chunk_size=300,  # 每个块的大小
     chunk_overlap=00,  # 相邻块之间的重叠大小
     # separators=["\n\n", "\n", " ", ""]  # 分割符列表
 )
