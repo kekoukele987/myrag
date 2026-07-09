@@ -85,9 +85,11 @@ def get_zhipu_embedding(text: str):
 vec1 = get_zhipu_embedding(sentence_a)
 vec2 = get_zhipu_embedding(sentence_b)
 vec3 = get_zhipu_embedding(sentence_c)
+vec4 = get_zhipu_embedding(sentence_c)
 print(f"智谱 Embedding 相似度：{cos_sim(vec1, vec2):.4f}"   )
 print(f"智谱 Embedding 相似度：{cos_sim(vec1, vec3):.4f}"   )
 
+print(f"智谱 Embedding 相似度：{cos_sim(vec3, vec4):.4f}"   )
 
 
 """
