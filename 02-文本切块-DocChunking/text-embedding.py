@@ -68,7 +68,31 @@ load_dotenv()
 # vec2 = get_openai_embedding("游戏科学出品黑悟空")
 # print(f"OpenAI Embedding 相似度：{cos_sim(vec1, vec2):.4f}")
 
-# ---- 继续用本地 FastEmbed 完成第二个例子（无需 API Key）----
-vec1 = list(embedding_model.embed(["黑神话悟空是国产游戏"]))[0]
-vec2 = list(embedding_model.embed(["游戏科学出品黑悟空"]))[0]
-print(f"\n本地 FastEmbed 第二组相似度：{cos_sim(vec1, vec2):.4f}")
+
+
+client = OpenAI(
+    api_key=os.getenv("ZHIPU_API_KEY"),
+    base_url="https://open.bigmodel.cn/api/paas/v4"
+)
+
+def get_zhipu_embedding(text: str):
+    resp = client.embeddings.create(
+        input=text,
+        model="embedding-3"  # 智谱官方向量模型
+    )
+    return np.array(resp.data[0].embedding)
+
+vec1 = get_zhipu_embedding(sentence_a)
+vec2 = get_zhipu_embedding(sentence_b)
+vec3 = get_zhipu_embedding(sentence_c)
+print(f"智谱 Embedding 相似度：{cos_sim(vec1, vec2):.4f}"   )
+print(f"智谱 Embedding 相似度：{cos_sim(vec1, vec3):.4f}"   )
+
+
+
+"""
+句子A与句子B相似度：0.7699
+句子A与句子C相似度：0.2689
+智谱 Embedding 相似度：0.7144
+智谱 Embedding 相似度：0.2860
+"""
